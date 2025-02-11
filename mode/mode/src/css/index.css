@@ -1,0 +1,74 @@
+
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.Header{
+  display: flex;
+  justify-content: space-between;
+  padding: 1.3rem;
+}
+
+
+.Menu-nav{
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+
+}
+
+.Menu-links{
+  list-style: none;
+  text-decoration: none;
+  font-size: 2rem;
+  font-style: oblique;
+  font-weight: bold;
+  color: rgb(44, 44, 44);
+}
+
+
+
+
+
+
+
+
+
+
+/* ---------------- */
+/*     Tablets */
+/* ---------------- */
+
+
+@media screen  and (min-width: 768px) and (max-width:1023px){
+  
+
+  :root{
+    font-size: 16px;
+  }
+
+
+
+}
+
+
+
+
+
+
+/* ---------------- */
+/*     Dekstop      */
+/* ---------------- */
+
+
+
+@media screen  and (min-width: 1024x) and (max-width:1281px){
+
+
+  :root{
+    font-size: 16px;
+  }
+  
+}
