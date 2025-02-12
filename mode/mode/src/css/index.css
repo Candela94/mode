@@ -37,6 +37,20 @@
 
 
 
+.Contenedor-imagenes{
+  border: 3px solid black;
+
+  width: 100%;
+  height: 500px;
+}
+
+
+
+
+
+
+
+
 /* ---------------- */
 /*     Tablets */
 /* ---------------- */

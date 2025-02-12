@@ -1,5 +1,5 @@
 
-
+import { HiMenuAlt3 } from "react-icons/hi";
 
 export const Header = () => {
 
@@ -10,7 +10,7 @@ export const Header = () => {
         <header className="Header">
             <img src="#" alt="logo" className="Logo" />
             <nav className="Header-nav">
-                <div className="Header-menu">Menú</div>
+            <HiMenuAlt3 style={{width:'24px', height:'24'}}/>
             </nav>
         </header>
         
