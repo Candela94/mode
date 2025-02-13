@@ -14,21 +14,12 @@ const Proyecto = () => {
 
 
         <>
-        <main className="Main">
-        
-        <div className="Contenedor-imagenes">
+     
 
-            {listaImages.map((imagen) => (
 
-                <img src={listaImage} alt="" />
-
-            ))
-
-            }
-
-        </div>
-
-        </main>
+     {/* <img src="https://drive.google.com/uc?id=1Xih0O9sOPmkOSWK0YbRG-J567FN3spDu" alt="Imagen desde Google Drive"> */}
+     
+  
         
         </>
     )

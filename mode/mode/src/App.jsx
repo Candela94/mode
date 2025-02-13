@@ -14,6 +14,7 @@ import Proyecto from './pages/Proyecto.jsx'
 
 
 
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -22,7 +23,8 @@ function App() {
      <Header />
      {/* <MenuDesplegable /> */}
      <Proyecto />
-     
+     <img src="https://drive.google.com/file/d/id=1Xih0O9sOPmkOSWK0YbRG-J567FN3spDu/view?usp=sharing" alt="imagen" />
+    
     </>
   )
 }

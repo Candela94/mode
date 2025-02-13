@@ -10,9 +10,9 @@ export const MenuDesplegable = () => {
 
        <div className="Menu">
 <ul className="Menu-nav">
-    <a href=""><li className="Menu-links">PROYECTOS</li></a>
-    <a href=""><li className="Menu-links">EN PROCESO</li></a>
-    <a href=""><li className="Menu-links">CONTACTO</li></a>
+    <li className="Menu-links"><a href="">PROYECTOS</a></li>
+  <li className="Menu-links"><a href="">EN PROCESO</a></li>
+   <li className="Menu-links"><a href="">CONTACTO</a></li>
 </ul>
         
        </div>
