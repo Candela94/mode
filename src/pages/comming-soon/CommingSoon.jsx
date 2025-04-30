@@ -26,7 +26,7 @@ const CoomingSoon = () => {
                 <di className="Main-background">
                     {imagenes.map((src,index) => (
                         <div className="Background-imagenes" key={index} style={{
-                            backgroundImage:`url(${src})`, animationDelay:`${index * 15}s`
+                            backgroundImage:`url(${src})`, animationDelay:`${index * 20}s`
                         }}></div>
                     ))}
                 </di>
