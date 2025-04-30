@@ -60,24 +60,90 @@
 .Main-comming {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     position: absolute;
     z-index: 10;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+
     font-family: 'Helvetica', sans-serif;
 }
 
-.Title {
-    text-align: center;
-    font-size: 3rem;
+.Main-logo {
+    width: 200px;
+
 }
 
 
 .Subtitle {
     text-align: center;
     font-style: oblique;
+}
+
+
+
+
+
+
+
+
+
+
+/* tablet */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .Main-logo {
+        width: 250px;
+    }
+
+    .Main-container {
+        display: flex;
+    }
+
+
+    .Main-background {
+        width: 500px;
+    }
+
+
+    .Main-comming{
+        left: 75%
+    }
+
+
+}
+
+
+
+
+
+
+/* Dekstop */
+@media (min-width: 1025px) {
+
+
+
+
+    .Main-logo {
+        width: 300px;
+    }
+
+    .Main-container {
+        display: flex;
+    }
+
+
+    .Main-background {
+        width: 600px;
+    }
+
+
+    .Main-comming{
+        left: 70%
+    }
+
+
 }

@@ -22,24 +22,24 @@ const CoomingSoon = () => {
 
             <main className="Main Main-commingSoon">
 
+                <div className="Main-container">
+                    <div className="Main-background">
+                        {imagenes.map((src, index) => (
+                            <div className="Background-imagenes" key={index} style={{
+                                backgroundImage: `url(${src})`, animationDelay: `${index * 15}s`
+                            }}></div>
+                        ))}
+                    </div>
 
-                <di className="Main-background">
-                    {imagenes.map((src,index) => (
-                        <div className="Background-imagenes" key={index} style={{
-                            backgroundImage:`url(${src})`, animationDelay:`${index * 20}s`
-                        }}></div>
-                    ))}
-                </di>
+                    <div className="Main-comming">
 
-                <div className="Main-comming">
+                        <img src="/img/mode-logo.png" alt="logo" className="Main-logo" />
+                        <p className='Subtitle'>Comming soon</p>
 
-                    <h1 className='Title'>MODE</h1>
-                    <p className='Subtitle'>Comming soon</p>
+                    </div>
+
 
                 </div>
-
-
-
 
             </main>
 
