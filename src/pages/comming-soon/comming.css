@@ -60,7 +60,7 @@
 .Main-comming {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     position: absolute;
     z-index: 10;
     text-align: center;
@@ -105,7 +105,7 @@
 
 
     .Main-background {
-        width: 500px;
+        width: 55%;
     }
 
 
@@ -137,12 +137,13 @@
 
 
     .Main-background {
-        width: 600px;
+        width: 50%;
+      
     }
 
 
     .Main-comming{
-        left: 70%
+        left: 75%
     }
 
 

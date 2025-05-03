@@ -1,4 +1,4 @@
-import '../../css/App.css'
+import '../../css/Layout.css'
 import './comming.css'
 
 
@@ -34,7 +34,7 @@ const CoomingSoon = () => {
                     <div className="Main-comming">
 
                         <img src="/img/mode-logo.png" alt="logo" className="Main-logo" />
-                        <p className='Subtitle'>Comming soon</p>
+                        <p className='Subtitle'>Coming soon</p>
 
                     </div>
 

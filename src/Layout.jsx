@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './css/App.css'
+import './css/Layout.css'
+import { Header } from './components/header/Header'
 
 import CoomingSoon from './pages/comming-soon/CommingSoon'
 
-function App() {
+function Layout() {
 
 
   return (
     <>
-     
+     <Header />
      <CoomingSoon />
     </>
   )
 }
 
-export default App
+export default Layout
+

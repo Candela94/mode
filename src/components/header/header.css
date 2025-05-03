@@ -1,0 +1,31 @@
+
+.Header{
+    padding:2rem;
+    background: none;
+}
+
+
+
+.Header-ul{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.Header-logo{
+    width: 100px;
+}
+
+
+.Header-li{
+
+    list-style: none;
+}
+
+
+
+.Header-menu{
+    font-size: 22px;
+    cursor: pointer;
+}
