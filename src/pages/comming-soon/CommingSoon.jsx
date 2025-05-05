@@ -31,6 +31,10 @@ const CoomingSoon = () => {
                         ))}
                     </div>
 
+
+
+
+
                     <div className="Main-comming">
 
                         <img src="/img/mode-logo.png" alt="logo" className="Main-logo" />

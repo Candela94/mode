@@ -73,6 +73,10 @@
 
 .Main-logo {
     width: 200px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInLogo 1s ease-out forwards;
+    animation-delay: 0s; /* El logo aparece primero */
 
 }
 
@@ -80,11 +84,42 @@
 .Subtitle {
     text-align: center;
     font-style: oblique;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInSubtitle 1s ease-out forwards;
+    animation-delay: 1s; /* El texto aparece después del logo */
 }
 
 
 
 
+
+/* ANIMACIONES */
+/* Animación para el logo */
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Animación para el texto */
+@keyframes fadeInSubtitle {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 
