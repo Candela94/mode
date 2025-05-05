@@ -1,0 +1,52 @@
+
+
+
+.Menu-ul{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    padding: 3rem 2rem;
+}
+
+
+.Menu-li{
+    list-style: none;
+    font-size: 2rem;
+    font-style: oblique;
+ 
+
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInUp 0.7s ease forwards;
+
+    cursor: pointer;
+}
+
+
+
+
+.li-1{
+    animation-delay: 0.1s;
+}
+
+
+.li-2{
+    animation-delay: 0.4s;
+}
+
+
+
+.li-3{
+    animation-delay: 0.7s;
+}
+
+
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

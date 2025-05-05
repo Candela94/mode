@@ -13,7 +13,7 @@ export const Header = () => {
                 <ul className="Header-ul">
 
                     <NavLink className='Logo'to=""><img src="/img/mode-logo.png" alt="Logo" className="Header-logo" /></NavLink>
-                    <li className="Header-li"><HiOutlineMenuAlt1 className="Header-menu" /></li>
+                    <NavLink className='Logo'to="/menu"><li className="Header-li"><HiOutlineMenuAlt1 className="Header-menu" /></li></NavLink>
                     
                 </ul>
             </nav>

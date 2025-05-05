@@ -2,6 +2,10 @@
 .Header{
     padding:2rem;
     background: none;
+    position: sticky;
+    top: 0;
+    background-color: var(--bckground);
+    z-index: 1;
 }
 
 

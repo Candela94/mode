@@ -11,7 +11,7 @@
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
 
-    --bckground:rgb(236, 234, 224);
+    --bckground:rgb(236, 234, 229);
 }
 
 
@@ -35,7 +35,7 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 

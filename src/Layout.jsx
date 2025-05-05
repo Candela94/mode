@@ -5,6 +5,7 @@ import './css/Layout.css'
 import { Header } from './components/header/Header'
 
 import CoomingSoon from './pages/comming-soon/CommingSoon'
+import { Outlet } from 'react-router'
 
 function Layout() {
 
@@ -12,7 +13,8 @@ function Layout() {
   return (
     <>
      {/* <Header /> */}
-     <CoomingSoon />
+     {/* <CoomingSoon /> */}
+     <Outlet />
     </>
   )
 }
