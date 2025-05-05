@@ -11,7 +11,7 @@ function Layout() {
 
   return (
     <>
-     <Header />
+     {/* <Header /> */}
      <CoomingSoon />
     </>
   )
