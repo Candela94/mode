@@ -32,11 +32,22 @@
 
 
 .Galeria-img {
-    width: 200px;
+    width: 100%;
+    height: 100%;
     border-radius: 2px;
     opacity: 0;
+    object-fit: cover;
+    
 
 
+}
+
+
+
+.Contenedor-imagen{
+    border: 3px solid red;
+    width: 250px;
+    height: 300px;
 }
 
 
@@ -76,7 +87,7 @@
    
  .Galeria{
 
-    display: flex;
+    display: block;
     flex-direction: row;
     gap: 2rem;
     align-items: center;

@@ -14,9 +14,9 @@ export const useScroll = () => {
         const observer = new IntersectionObserver(([entry]) => {
 
 
+            const el = entry.target;
             if (entry.isIntersecting) {
 
-                const el = entry.target;
                 const index = el.dataset.index || 0; // usa el data-index
                 el.style.transitionDelay = `${index * 0.2}s`; // aplica delay dinámico
                 el.classList.add('visible');
