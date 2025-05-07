@@ -13,8 +13,8 @@ function Layout() {
   return (
     <>
      {/* <Header /> */}
-     <CoomingSoon />
-     {/* <Outlet /> */}
+     {/* <CoomingSoon /> */}
+     <Outlet />
     </>
   )
 }

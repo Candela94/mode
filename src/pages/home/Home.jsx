@@ -22,13 +22,13 @@ const Home = () => {
                 <div className="Galeria">
                     {[1, 2, 3, 4, 5].map((num, index) => (
 
-                        <div className="Contenedor-imagen">
+                        <div  ref={imageRefs[index]} className="Contenedor-imagen reveal">
                             <img
                                 key={num}
-                                ref={imageRefs[index]}
+                               
                                 src={`/img/${num}.jpg`}
                                 alt={`proyecto ${num}`}
-                                className="Galeria-img reveal"
+                                className="Galeria-img "
                                 data-index={index} // usamos esto para aplicar delay en CSS
                             />
                         </div>
