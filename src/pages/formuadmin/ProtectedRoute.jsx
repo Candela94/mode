@@ -1,7 +1,5 @@
 import { Navigate, Outlet, useNavigate } from "react-router";
 
-import { Header } from "../../components/header/Header";
-import { BottomNavigation } from "../../components/bottom-navigation-header/BottomNavigation";
 
 
 const ProtectedRoute = ({ requiredRole }) => {

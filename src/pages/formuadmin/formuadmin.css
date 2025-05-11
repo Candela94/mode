@@ -1,0 +1,67 @@
+
+
+
+
+.Main-formu{
+    padding: 1rem;
+
+}
+.Formulario{
+
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.Formu-datos{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.Formulario-input{
+    padding: 0.8rem;
+    background-color:rgb(240, 240, 240);
+    border: none;
+    font-style: oblique;
+
+    transition: background-color 0.3s ease;
+}
+
+
+.Formulario-input:focus{
+    background-color: rgb(182, 171, 171);
+    outline: none;
+}
+
+
+
+
+.Formulario-uploads{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 2rem;
+   
+}
+
+.Boton{
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    border: none;
+}
+
+
+.Boton-secondary{
+
+    padding: 1rem;
+    border-radius: 8px;
+   
+    border: 0.5px solid rgb(43, 43, 43);
+
+}

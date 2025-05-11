@@ -6,6 +6,7 @@ import { Header } from './components/header/Header'
 
 import CoomingSoon from './pages/comming-soon/CommingSoon'
 import { Outlet } from 'react-router'
+import FormuAdmin from './pages/formuadmin/FormuAdmin'
 
 function Layout() {
 
@@ -14,6 +15,7 @@ function Layout() {
     <>
      {/* <Header /> */}
      <CoomingSoon />
+     {/* <FormuAdmin /> */}
      {/* <Outlet /> */}
     </>
   )
