@@ -6,6 +6,8 @@ import { useState } from 'react'
 
 const FormuProyecto = () => {
 
+    const VITE_URL= import.meta.env.VITE_URL
+
     const [proyecto, setProyecto] = useState({
 
         nombre: '',
@@ -40,10 +42,11 @@ const FormuProyecto = () => {
             formData.append('nombre', proyecto.nombre);
 
 
-            if (proyecto.imagenes && proyecto.imagenes.length > 0) {}
+            if (proyecto.imagenes && proyecto.imagenes.length > 0) {
                 for (let i = 0; i < proyecto.imagenes.length; i++) {
                     formData.append('imagenes', proyecto.imagenes[i]);
                 }
+            }
 
                 formData.append('portada', proyecto.portada)
 
@@ -73,7 +76,8 @@ const FormuProyecto = () => {
 
                     })
                 } else {
-                    <div style={{ padding: '1rem', backgroundColor: 'red', color: 'white' }}>No se pudo subir la imagen</div>
+                  alert('No se pudo subir')
+                  console.error(result)
                 }
 
 

@@ -2,6 +2,7 @@
 
 const Login = () => {
     const { LogIn } = useContext(UserContext)
+    const VITE_URL= import.meta.env.VITE_URL
 
     const [data, setData] = useState({
 

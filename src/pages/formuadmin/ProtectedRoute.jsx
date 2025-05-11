@@ -25,7 +25,7 @@ const ProtectedRoute = ({ requiredRole }) => {
         if (requiredRole && userRole !== requiredRole) {
 
             console.log(`Rol requerido: ${requiredRole}, Rol del usuario: ${userRole}. Acceso denegado.`);
-            return <Navigate to="/acceso-denegado" replace />
+            return 
 
         }
 
@@ -36,7 +36,7 @@ const ProtectedRoute = ({ requiredRole }) => {
     } catch (e) {
         console.error('Error al decodificar el token', e);
         localStorage.removeItem('token')
-        return <Navigate to='/login' replace />
+        return 
 
     }
 
