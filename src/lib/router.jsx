@@ -7,6 +7,10 @@ import FormuProyecto from "../pages/formuadmin/FormuProyecto.jsx";
 import Login from "../pages/formuadmin/LoginAdmin.jsx";
 import ProtectedRoute from "../pages/formuadmin/ProtectedRoute.jsx";
 import Registro from "../pages/formuadmin/Registro.jsx";
+import Proyecto from "../pages/proyecto/Proyecto.jsx";
+
+
+
 const router = createBrowserRouter([{
 
     path: '/',
@@ -26,6 +30,12 @@ const router = createBrowserRouter([{
         {
             path:"/menu",
             element: <Menu />
+        },
+
+
+        {
+            path:"/proyectos/:pid",
+            element: <Proyecto />
         },
 
 

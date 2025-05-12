@@ -5,6 +5,7 @@ import './home.css'
 import { useScroll } from "../../../hooks/UseScroll";
 import { useState } from "react";
 import { useFetchAll } from "../../../hooks/useFetch";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -13,7 +14,8 @@ const Home = () => {
 
 
     const {proyectos ,loading, error} = useFetchAll()
-    const ref = useScroll();
+
+
 
 
 
@@ -50,9 +52,11 @@ const Home = () => {
 
                                         return(
 
-                                            <li ref={ref} key={proyecto._id} className="Galeria-li ">
-                                                <img  src={proyecto.portada} index={id} alt={proyecto.nombre} className="Galeria-img reveal" />
-                                            </li>
+                                           <NavLink key={proyecto._id}  to={`/proyectos/${proyecto._id}`}><li  data-index={id} className="Galeria-li ">
+                                               <div  className="Galeria-contenedor " >
+                                                <img  src={proyecto.portada}  alt={proyecto.nombre} className="Galeria-img " />
+                                                </div>
+                                            </li></NavLink> 
                                         )
                                     })
                                 }

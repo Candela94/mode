@@ -1,7 +1,7 @@
 
 
 import { useState, useEffect } from "react";
-
+import { useParams } from "react-router";
 //Obtener todos los proyectos
 
 export const useFetchAll =  () => {
@@ -64,13 +64,15 @@ useEffect(() => {
 
 
 
-export const useFetchOne = (pid) => {
+export const useFetchOne = () => {
 
     const VITE_URL = import.meta.env.VITE_URL
     const [load, setLoad] = useState(true);
+    const { pid } = useParams()
     const [err, setErr] = useState(null);
 
-    const [proyect, setProyect] = useState([])
+    const [proyect, setProyect] = useState('')
+    const [imagenes, setImagenes] = useState([])
 
 
     useEffect(() => {
@@ -96,21 +98,35 @@ export const useFetchOne = (pid) => {
                       
                     },
 
+
+                    
+
                 })
+
+                if(!response.ok) {
+                    throw new Error(`Error: ${response.status}`)
+                }
+    
+                const data = await response.json();
+                console.log('DATA RECIBIDA:', data); // 👈
+
+                setProyect(data.data)
+                setImagenes(data.data.imagenes)
 
             }catch(e) {
 
-            }
+            }finally {
+                setLoad(false); 
+              }
 
         }
+
+        proyectoId()
 
 
 
     }, [pid, VITE_URL]);
    
 
-    return ( 
-        <>
-        </>
-     );
+    return {proyect,imagenes, load, err};
 }

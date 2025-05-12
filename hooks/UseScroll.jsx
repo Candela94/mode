@@ -1,50 +1,46 @@
-
-import { useEffect, useRef } from "react"
-
-
+import { useEffect } from "react";
 
 export const useScroll = () => {
 
-    const ref = useRef()
 
 
+  useEffect(() => {
 
-    useEffect((className = 'reveal') => {
+    const selectElementos = () => {
 
-        const observer = new IntersectionObserver(([entry]) => {
-
-
+        
+        const elements = document.querySelectorAll('.reveal');
+        console.log('Found elements to observe:', elements);
+    
+        const observer = new IntersectionObserver(
+    
+          ([entry]) => {
+    
             const el = entry.target;
+    
             if (entry.isIntersecting) {
-
-                const index = el.dataset.index || 0; // usa el data-index
-                el.style.transitionDelay = `${index * 0.2}s`; // aplica delay dinámico
-                el.classList.add('visible');
+    
+              const index = el.dataset.index || 0;
+    
+              el.style.transitionDelay = `${index * 0.2}s`;
+    
+              el.classList.add('visible');
+    
             } else {
-                el.classList.remove('visible')
+    
+              el.classList.remove('visible');
             }
-
-
-        },
-            { threshold: 0.1 }
-
-
+          },
+    
+          { threshold: 0.1 }
         );
+    }
 
 
-        if (ref.current) observer.observe(ref.current); //si hay un elemento vinculado, comienza a observarlo
+    elements.forEach(el => observer.observe(el));
 
-        return () => {
-            if (ref.current) observer.unobserve(ref.current)
-        };
-
-
-
-    }, [])
-
-
-    return ref;
-
-
-
-}
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
+};
