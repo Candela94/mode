@@ -1,8 +1,8 @@
 
-import './registro.css'
-import { Button } from '../../components/buttons/Button.jsx';
+import './formuadmin.css'
+
 import { useState, useContext, useEffect } from 'react';
-import { UserContext } from '../../context/UserContext.jsx'
+import { UserContext } from '../../../context/userContext.jsx';
 
 import { NavLink, useNavigate } from 'react-router';
 
@@ -31,7 +31,7 @@ const Registro = () => {
     
 
 
-    const handleChange = async (e) => {
+    const handleChange =  (e) => {
         const {name, value} = e.target;
         setFormData((prev) => ({...prev, [name]: value}))
     }
@@ -58,7 +58,7 @@ const Registro = () => {
 
     
         try {
-            const response = await fetch(`${VITE_URL}/api/v1/usuarios/register`, {
+            const response = await fetch(`${VITE_URL}/api/v1/admin/register`, {
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,7 +77,8 @@ const Registro = () => {
                localStorage.setItem("token", data.token)
                 LogIn({
                    
-                    email: data.user.email
+                    email: data.user.email,
+                    _id: data.user.id,
 
                 });
                 navigate('/admin/uploads')
@@ -110,9 +111,9 @@ const Registro = () => {
             
                 <main className="Main-login">
                     <div className="Notificacion-container">
-                        <Notificaciones />
+                
                     </div>
-                    <form action="POST" onSubmit={handleEnviar} className="Formulario">
+                    <form action="POST" onSubmit={handleEnviar} className="Formu-datos" style={{padding:'1.5rem'}}>
 
                         <h1 className='Formulario-h1'>Registro</h1>
 

@@ -6,6 +6,7 @@ import Menu from "../pages/menu/Menu.jsx";
 import FormuProyecto from "../pages/formuadmin/FormuProyecto.jsx";
 import Login from "../pages/formuadmin/LoginAdmin.jsx";
 import ProtectedRoute from "../pages/formuadmin/ProtectedRoute.jsx";
+import Registro from "../pages/formuadmin/Registro.jsx";
 const router = createBrowserRouter([{
 
     path: '/',
@@ -27,34 +28,26 @@ const router = createBrowserRouter([{
             element: <Menu />
         },
 
-        {
 
+        {
             path:"/admin/login",
-            element: <ProtectedRoute requiredRole = 'admin' />,
-            children : [
-                {
-                index : true ,
-                element : <Login />
-                }
-            ]
+            element: <Login />
         },
-
 
 
         {
-            
             path:"/admin/register",
-            element: <ProtectedRoute requiredRole = 'admin' />,
-            children : [
-                {
-                index : true ,
-                element : <Login />
-                }
-            ]
+            element: <Registro />
         },
-
-
        
+
+        // {
+        //     path:"/admin/proyectos",
+        //     element: <FormuProyecto />
+        // },
+
+
+
 
 
         {

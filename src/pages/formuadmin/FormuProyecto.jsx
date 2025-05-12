@@ -12,7 +12,7 @@ const FormuProyecto = () => {
 
         nombre: '',
         portada: null,
-        imagenes: null
+        imagenes: []
 
     })
 
@@ -24,7 +24,7 @@ const FormuProyecto = () => {
         if (name === 'portada') {
             setProyecto(prev => ({ ...prev, portada: files[0] }));
         } else if (name === 'imagenes') {
-            setProyecto(prev => ({ ...prev, imagenes: files }));
+            setProyecto(prev => ({ ...prev, imagenes: Array.from(files) }));
         } else {
             setProyecto(prev => ({ ...prev, [name]: value }));
         }
@@ -35,25 +35,34 @@ const FormuProyecto = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+          // Validación antes de enviar
+          if (!proyecto.nombre || !proyecto.portada || !proyecto.imagenes.length) {
+            alert('Por favor, complete todos los campos');
+            return;
+        }
+
 
         try {
 
             const formData = new FormData();
             formData.append('nombre', proyecto.nombre);
+            formData.append('portada', proyecto.portada);
 
 
-            if (proyecto.imagenes && proyecto.imagenes.length > 0) {
-                for (let i = 0; i < proyecto.imagenes.length; i++) {
-                    formData.append('imagenes', proyecto.imagenes[i]);
-                }
-            }
+          //Agregamos múltiples archivos 
+          proyecto.imagenes.forEach(imagen => {
+            formData.append('imagenes', imagen)
+          })
 
-                formData.append('portada', proyecto.portada)
+               
 
 
                 const token = localStorage.getItem('token');
+                console.log("Token recuperado:", token); 
 
-                const response = await fetch(`${VITE_URL}/api/v1/admin/uploads`, {
+                console.log("Intentando subir proyecto con token...");
+
+                const response = await fetch(`${VITE_URL}/api/v1/admin/proyectos`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -68,13 +77,18 @@ const FormuProyecto = () => {
 
                         nombre: '',
 
-
-                        imagenes: null,
+                        imagenes: [],
 
                         portada: null,
 
 
                     })
+
+                    //reseteamos inputs de archivos
+                    document.querySelector('input[name="portada"]').value='';
+                    document.querySelector('input[name="imagenes"]').value='';
+
+
                 } else {
                   alert('No se pudo subir')
                   console.error(result)
@@ -103,7 +117,7 @@ const FormuProyecto = () => {
 
 
                         <div className="Formu-datos">
-                            <input value={proyecto.nombre} onChange={handleChange} name='nombre' className='Formulario-input' type="text" placeholder='Nombre del proyecto' />
+                            <input onChange={handleChange} value={proyecto.nombre}  name='nombre' className='Formulario-input' type="text" placeholder='Nombre del proyecto' />
 
 
 
@@ -121,10 +135,10 @@ const FormuProyecto = () => {
                         </label>
 
                                 <label className='Formulario-label' htmlFor="Img-upload"> Selecciona una imagen
-                                    <input name='imagenes' className='Formulario-input' id='Img-upload' type="file" multiple  accept='image/*'placeholder='Selecciona una imagen' />
+                                    <input name='imagenes' className='Formulario-input' id='Img-upload' type="file" multiple  accept='image/*'placeholder='Selecciona una imagen' onChange={handleChange}/>
                                 </label>
 
-                                <button className='Boton'>Subir proyecto</button>
+                                <button type='submit' className='Boton'>Subir proyecto</button>
                                
 
                             </div>

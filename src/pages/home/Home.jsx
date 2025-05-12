@@ -4,10 +4,18 @@ import './home.css'
 
 import { useScroll } from "../../../hooks/UseScroll";
 import { useState } from "react";
+import { useFetchAll } from "../../../hooks/useFetch";
+
+
+
 
 const Home = () => {
 
-    const imageRefs = Array(5).fill(null).map(() => useScroll());
+
+    const {proyectos ,loading, error} = useFetchAll()
+    const ref = useScroll();
+
+
 
 
 
@@ -20,19 +28,45 @@ const Home = () => {
 
 
                 <div className="Galeria">
-                    {[1, 2, 3, 4, 5].map((num, index) => (
+                  
 
-                        <div  ref={imageRefs[index]} className="Contenedor-imagen reveal">
-                            <img
-                                key={num}
-                               
-                                src={`/img/${num}.jpg`}
-                                alt={`proyecto ${num}`}
-                                className="Galeria-img "
-                                data-index={index} // usamos esto para aplicar delay en CSS
-                            />
-                        </div>
-                    ))}
+
+                    {
+                        loading ? (
+
+                            <p> Cargando proyectos</p>
+
+                        ) : error ? (
+
+                            <p>Error al cargar los proyectos</p>
+
+                        ) : proyectos && proyectos.length > 0 ? (
+
+                            <ul className="Galeria-proyectos">
+
+
+                                {
+                                    proyectos.map((proyecto, id) => {
+
+                                        return(
+
+                                            <li ref={ref} key={proyecto._id} className="Galeria-li ">
+                                                <img  src={proyecto.portada} index={id} alt={proyecto.nombre} className="Galeria-img reveal" />
+                                            </li>
+                                        )
+                                    })
+                                }
+
+                            </ul>
+                        ): (
+                            <p>No hay proyectos que mostrar</p>
+                        )
+                    }
+
+
+
+
+
                 </div>
 
 

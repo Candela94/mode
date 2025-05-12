@@ -1,8 +1,11 @@
-
+import { useContext, useState } from "react"
+import { UserContext } from "../../../context/userContext"
+import { useNavigate } from "react-router"
 
 const Login = () => {
     const { LogIn } = useContext(UserContext)
     const VITE_URL= import.meta.env.VITE_URL
+    const navigate = useNavigate();
 
     const [data, setData] = useState({
 
@@ -13,11 +16,17 @@ const Login = () => {
     })
 
 
+    const handleChange = (e) => { // Definir la función handleChange que estaba faltando
+        const { name, value } = e.target
+        setData((prev) => ({ ...prev, [name]: value }))
+    }
+
+
     const handleLogIn = async (e) => {
         e.preventDefault();
 
         if (!data.email || !data.password) {
-            mostrarNotificacion("error", "Por favor, completa todos los datos")
+            alert("Por favor, completa todos los datos")
             return;
         }
 
@@ -25,7 +34,7 @@ const Login = () => {
         try {
 
 
-            const response = await fetch(`${VITE_URL}/api/v1/usuarios/login`, {
+            const response = await fetch(`${VITE_URL}/api/v1/admin/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,8 +47,7 @@ const Login = () => {
             })
 
             const datos = await response.json();
-            console.log('Nombre recibido:', datos.user.nombre)
-            console.log('Usuario:', datos.user);
+          
             console.log('Response:', response)
             console.log('Datos:', datos)
 
@@ -54,17 +62,21 @@ const Login = () => {
                     _id: datos.user.id
                 })
 
+                navigate('/admin/proyectos')
+
 
 
 
             } else {
+                alert(datos.mensaje || 'Error en login')
 
             }
 
 
         } catch (e) {
 
-
+            console.error('Error en login:', e)
+            alert('Error de conexión')
 
 
         }
@@ -76,7 +88,7 @@ const Login = () => {
 
             <main className="Main-formulario">
                 <div className="Notificacion-container">
-                    <Notificaciones />
+                   
                 </div>
                 <form onSubmit={handleLogIn} className="Formulario">
 
@@ -91,7 +103,7 @@ const Login = () => {
 
                     <div className="Formulario-botones">
                        
-                       <button className="Boton">Iniciar sesion</button>
+                       <button type='submit' className="Boton">Iniciar sesion</button>
                     </div>
 
                 </form>

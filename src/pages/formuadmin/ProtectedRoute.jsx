@@ -1,4 +1,7 @@
 import { Navigate, Outlet, useNavigate } from "react-router";
+import {jwtDecode} from "jwt-decode";
+
+
 
 
 
@@ -7,17 +10,22 @@ const ProtectedRoute = ({ requiredRole }) => {
 
 
     //1. Obtener token 
-    const userRole = localStorage.getItem('userRole');
+    const token = localStorage.getItem('token');
 
+    //2. Verificamos si existe el token
+
+    if (!token) {
+        console.log("No hay rol, redirigiendo a login")
+
+        return <Navigate to='/admin/login' replace />
+
+    }
     try {
-        //2. Verificamos si existe el token
 
-        if (!userRole) {
-            console.log("No hay rol, redirigiendo a login")
 
-            return <Navigate to='/login' replace />
+        const decoded = jwtDecode(token);
+        const userRole = decoded.role;
 
-        }
 
 
         //3. Verficamos si se requiere un role especifico 
@@ -25,7 +33,7 @@ const ProtectedRoute = ({ requiredRole }) => {
         if (requiredRole && userRole !== requiredRole) {
 
             console.log(`Rol requerido: ${requiredRole}, Rol del usuario: ${userRole}. Acceso denegado.`);
-            return 
+            return <Navigate to="/admin/login" replace />;
 
         }
 
@@ -36,7 +44,7 @@ const ProtectedRoute = ({ requiredRole }) => {
     } catch (e) {
         console.error('Error al decodificar el token', e);
         localStorage.removeItem('token')
-        return 
+        return  <Navigate to="/admin/login" replace />;
 
     }
 
