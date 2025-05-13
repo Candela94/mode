@@ -7,19 +7,82 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(4px);
+    transition: backdrop-filter 0.3s ease;
     z-index: 9999;
+    animation: fadeIn 0.3s forwards; /* entrada animada */
+  }
+
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
   }
   
   .lightbox-content {
     position: relative;
     height: 90vh;
+    transform: scale(0.9);
+    opacity: 0;
+    animation: zoomIn 0.4s ease-out forwards;
    
    
   }
+
+  @keyframes zoomIn {
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+
+
+
+
+  .lightbox-overlay.closing {
+    animation: fadeOut 0.3s forwards;
+    backdrop-filter: blur(0px); /* 👈 esto hace el blur out suave */
+  }
+  
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+
+
+
+
+
+  .lightbox-content.closing {
+    animation: zoomOut 0.3s ease-in forwards;
+
+    backdrop-filter: blur(0px);
+  }
+
+
+  @keyframes zoomOut {
+    to {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+  }
+
+
+
+
+
   
   .lightbox-img {
     max-width: 100%;
@@ -27,7 +90,37 @@
     object-fit: contain;
 
     border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+
+
   }
+
+
+  .lightbox-img.visible {
+    opacity: 1;
+  }
+
+
+
+  /* Animación de zoom para la imagen */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(0.90); /* Empieza ligeramente más pequeña */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); /* Vuelve a su tamaño original */
+    opacity: 1;
+  }
+}
+
+.lightbox-img.zoom {
+  animation: zoomInOut 0.5s ease-out;
+}
+
+
   
   .lightbox-close {
     position: absolute;

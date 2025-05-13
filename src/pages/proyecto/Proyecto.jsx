@@ -1,6 +1,6 @@
 import { useFetchOne } from "../../../hooks/useFetch";
 import './proyecto.css'
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Header } from "../../components/header/Header";
 import { Lightbox } from "../../components/lightbox/Lightbox";
 
@@ -13,6 +13,7 @@ const Proyecto = () => {
 
     const [lightboxOpen, setLightboxOpen] = useState(false)
     const [currentId, setCurrentId] = useState(0)
+    const imgRefs = useRef([]);
 
 
     //Función para abrir el lightbox
@@ -82,6 +83,42 @@ const Proyecto = () => {
 
 
 
+    //Animar imágenes para hacer scrolll 
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if(entry.isIntersecting) {
+                        const index = imgRefs.current.indexOf(entry.target);
+
+                        setTimeout(() => {
+                            entry.target.classList.add("visible");
+                        }, index * 80); 
+                      
+                        observer.unobserve(entry.target);
+                    }
+                })
+            },
+
+            {
+                threshold:0.1
+            }
+        )
+
+        imgRefs.current.forEach((ref) => {
+            if(ref) observer.observe(ref)
+        })
+
+
+        return () => {
+            imgRefs.current.forEach((ref) => {
+                if (ref) observer.unobserve(ref);
+            });
+        };
+    },[imagenes])
+
+
     return (
         <>
 
@@ -90,7 +127,7 @@ const Proyecto = () => {
             <Header />
 
             <main className="Main-proyecto">
-                <h1>{proyect.nombre}</h1>
+                <p className="Main-titulo">{proyect.nombre}</p>
                 <div className="Galeria-proyecto">
 
                     {
@@ -114,7 +151,7 @@ const Proyecto = () => {
                                         const claseExtra = orientaciones[id] === 'horizontal' ? 'horizontal' : '';
                                         return (
 
-                                            <li onClick={() => openLightbox(id)} className={`Galeria-mansory-item ${claseExtra}`} key={imgUrl._id || id}><img src={imgUrl} alt={`Imagen ${id}`} className="Galeria-imgProyecto" /></li>
+                                            <li ref={(el) => (imgRefs.current[id] = el)} onClick={() => openLightbox(id)} className={`Galeria-mansory-item ${claseExtra}`} key={imgUrl._id || id}><img src={imgUrl} alt={`Imagen ${id}`} className="Galeria-imgProyecto" /></li>
                                         )
                                     })
                                 }

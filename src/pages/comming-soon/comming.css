@@ -68,7 +68,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-family: 'Helvetica', sans-serif;
+   
 }
 
 .Main-logo {
@@ -91,6 +91,13 @@
     animation-delay: 1s; /* El texto aparece después del logo */
 }
 
+
+.Btn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+    animation: fadeInSubtitle 1s ease-out forwards;
+}
 
 
 
@@ -149,6 +156,10 @@
         left: 75%
     }
 
+    .Btn{
+        display: flex;
+        justify-content: end;
+    }
 
 }
 

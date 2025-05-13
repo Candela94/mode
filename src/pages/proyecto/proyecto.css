@@ -12,10 +12,9 @@
 
 
 
-.Galeria-proyecto{
-  
-  
-
+.Main-titulo{
+ 
+  font-size: 3rem;
 }
 
 
@@ -36,6 +35,16 @@
 
     break-inside: avoid; /* No cortar las imágenes entre columnas */
     margin-bottom: 0.4rem;
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+
+}
+
+.Galeria-mansory-item.visible{
+  opacity: 1;
+  transform: scale(1) translateY(0);
 
 }
 
@@ -73,7 +82,7 @@
   @media (min-width: 1025px) {
 
   .Galeria-mansory {
-    column-count: 4; /* 4 columnas en desktop */
+    column-count: 3;
   }
 
 
