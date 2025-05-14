@@ -18,10 +18,9 @@ const Inicio = () => {
 
             <main className="Main-inicio">
 
-                <picture>
-                    <source srcSet="/img/H1.jpg" media="(min-width: 768px)" />
-                    <img src="/img/1.jpg" alt="portada" className="Main-img" />
-                </picture>
+                
+                    <img src="/img/H1.jpg" alt="portada" className="Main-img" />
+           
 
 
                 <div className="Main-texto">

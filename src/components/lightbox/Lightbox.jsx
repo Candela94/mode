@@ -2,7 +2,7 @@
 
 
 import { useState, useEffect } from "react";
-import { TfiClose } from "react-icons/tfi";
+
 import './lightbox.css'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";

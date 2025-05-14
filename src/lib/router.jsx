@@ -2,12 +2,13 @@ import { createBrowserRouter } from "react-router";
 import Inicio from "../pages/inicio/Inicio";
 import Home from "../pages/home/Home";
 import Layout from '../Layout.jsx'
-import Menu from "../pages/menu/Menu.jsx";
+
 import FormuProyecto from "../pages/formuadmin/FormuProyecto.jsx";
 import Login from "../pages/formuadmin/LoginAdmin.jsx";
 import ProtectedRoute from "../pages/formuadmin/ProtectedRoute.jsx";
 import Registro from "../pages/formuadmin/Registro.jsx";
 import Proyecto from "../pages/proyecto/Proyecto.jsx";
+import Contacto from "../pages/contacto/Contacto.jsx";
 
 
 
@@ -27,16 +28,22 @@ const router = createBrowserRouter([{
             element: <Home />
         },
 
-        {
-            path:"/menu",
-            element: <Menu />
-        },
+      
 
 
         {
             path:"/proyectos/:pid",
             element: <Proyecto />
         },
+
+
+        {
+            path:"/contacto",
+            element: <Contacto />
+        },
+
+
+
 
 
         {
