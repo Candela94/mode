@@ -11,6 +11,7 @@
 
 
 
+
 .Main-img {
     width: 100%;
     height: 100%;
@@ -29,4 +30,63 @@
       opacity: 1;
     }
   }
+
+
+
+
+  .Logo{
+    width: 300px;
+    opacity: 0;
+    animation: slideDownLogo 1s ease-out 3s forwards; 
+  }
   
+
+
+
+  @keyframes slideDownLogo {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .Icono {
+    font-size: 2rem;
+    opacity: 0;
+    animation: slideUpIcon 1s ease-out 4s forwards; /* Aparece después del logo */
+  }
+  
+  @keyframes slideUpIcon {
+    0% {
+      opacity: 0;
+      transform: translateY(30px); /* Empieza desde abajo */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Se mueve a su posición original */
+    }
+  }
+  
+
+
+
+
+
+
+ .Main-texto{
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centrar completamente */
+  z-index: 2; /* asegúrate de que esté encima de la imagen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+ }

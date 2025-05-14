@@ -12,8 +12,8 @@ export const Header = () => {
             <nav className="Header-nav">
                 <ul className="Header-ul">
 
-                    <NavLink className='Logo'to="/"><img src="/img/mode-logo.png" alt="Logo" className="Header-logo" /></NavLink>
-                    <NavLink className='Logo'to="/menu"><li className="Header-li"><HiOutlineMenuAlt1 className="Header-menu" /></li></NavLink>
+                    <NavLink className='Header-logo'to="/"><img src="/img/mode-logo.png" alt="Logo" className="Header-logo" /></NavLink>
+                    <NavLink className='Header-iocono'to="/menu"><li className="Header-li"><p>MENU</p></li></NavLink>
                     
                 </ul>
             </nav>

@@ -3,7 +3,9 @@
 import { NavLink } from "react-router";
 import { Header } from "../../components/header/Header";
 import './inicio.css'
+
 import { BsChevronRight } from "react-icons/bs";
+
 
 
 
@@ -22,10 +24,11 @@ const Inicio = () => {
                 </picture>
 
 
-                <div className="Main-comming">
+                <div className="Main-texto">
 
-                    <img src="/img/mode-logo.png" alt="logo" className="Main-logo" />
-                    <p className='Subtitle'>Coming soon</p>
+                    <img src="/img/mode-logo.png" alt="logo" className="Logo" />
+                    <NavLink to='/home'><BsChevronRight className="Icono"/></NavLink>
+
 
                 </div>
 

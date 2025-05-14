@@ -56,6 +56,7 @@ const Home = () => {
                                                <div  className="Galeria-contenedor " >
                                                 <img  src={proyecto.portada}  alt={proyecto.nombre} className="Galeria-img " />
                                                 </div>
+                                                <div className="Galeria-nombre">{proyecto.nombre}</div>
                                             </li></NavLink> 
                                         )
                                     })

@@ -33,3 +33,25 @@
     font-size: 22px;
     cursor: pointer;
 }
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+   
+   
+
+
+  }
+
+  
+
+/* Dekstop */
+  @media (min-width: 1025px) {
+   
+
+.Header-logo{
+    width: 150px;
+}
+    
+  }
+  
