@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../components/header/Header";
 import './contacto.css'
+import { NavLink } from "react-router";
 
 
 const Contacto = () => {
@@ -32,7 +33,7 @@ const Contacto = () => {
 
             <main className="Contacto">
 
-                <h1 className={`Contacto-h1 ${showInfo ? "fade-in" : ""}`}>Contacto</h1>
+                <p className={`Contacto-h1 ${showInfo ? "fade-in" : ""}`}>Contacto</p>
 
 
                 <ul className="Contacto-ul">
@@ -44,10 +45,19 @@ const Contacto = () => {
                                 transitionDelay: `${index * 0.5}s`
                             }}
                         >
-                            {item}
+                            {item === 'Instagram' ? (
+
+                                <a className='instagram' href="https://www.instagram.com/mode_estudio/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                            ) : (
+                                item
+                            )
+                        
+                        }
                         </li>
                     ))}
                 </ul>
+
+
                 <div className={`Contenedor-imag ${showImage ? "fade-in" : ""}`}>
                     <img src="/img/6.jpg" alt="img" className="Contacto-img" />
                 </div>

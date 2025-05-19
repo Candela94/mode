@@ -55,8 +55,8 @@ const Home = () => {
                                            <NavLink key={proyecto._id}  to={`/proyectos/${proyecto._id}`}><li  data-index={id} className="Galeria-li ">
                                                <div  className="Galeria-contenedor " >
                                                 <img  src={proyecto.portada}  alt={proyecto.nombre} className="Galeria-img " />
-                                                </div>
                                                 <div className="Galeria-nombre">{proyecto.nombre}</div>
+                                                </div>
                                             </li></NavLink> 
                                         )
                                     })
