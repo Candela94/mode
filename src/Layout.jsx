@@ -17,9 +17,9 @@ function Layout() {
 
     <UserContextProvider>
      {/* <Header /> */}
-     {/* <CoomingSoon /> */}
+     <CoomingSoon />
    
-     <Outlet />
+     {/* <Outlet /> */}
 
      </UserContextProvider>
     </>
