@@ -10,11 +10,7 @@ const Contacto = () => {
     const [showImage, setShowImage] = useState(false);
     const [showInfo, setShowInfo] = useState(false)
 
-    const infoItems = [
-        'c/Duque de Calabria,13, 46005, Valencia',
-        'info@mode-studio.es',
-        'Instagram'
-    ]
+   
 
 
     useEffect(() => {
@@ -23,6 +19,18 @@ const Contacto = () => {
         setTimeout(() => setShowInfo(true), 1200)
     }, [])
 
+
+
+
+    const imagenes = [
+
+        '/img/1.jpg',
+        '/img/2.jpg',
+        '/img/3.jpg',
+        '/img/4.jpg',
+        '/img/5.jpg'
+    
+    ]
 
     return (
 
@@ -33,38 +41,58 @@ const Contacto = () => {
 
             <main className="Contacto">
 
-                <p className={`Contacto-h1 ${showInfo ? "fade-in" : ""}`}>Contacto</p>
-
-
-                <ul className="Contacto-ul">
-                {infoItems.map((item, index) => (
-                        <li
-                            key={index}
-                            className={`Contacto-li ${showInfo ? "slide-in" : ""}`}
-                            style={{
-                                transitionDelay: `${index * 0.5}s`
-                            }}
-                        >
-                            {item === 'Instagram' ? (
-
-                                <a className='instagram' href="https://www.instagram.com/mode_estudio/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                            ) : (
-                                item
-                            )
-                        
-                        }
-                        </li>
-                    ))}
-                </ul>
-
-
-                <div className={`Contenedor-imag ${showImage ? "fade-in" : ""}`}>
-                    <img src="/img/6.jpg" alt="img" className="Contacto-img" />
+               
+            <div className="Contacto-bloque1">
+                    <p className={`Contacto-h1 ${showInfo ? "fade-in" : ""}`}>Contacto</p>
+                    <p className={`Contacto-email ${showInfo ? "slide-in" : ""}`} 
+                       style={{ transitionDelay: "0.5s" }}>
+                        info@mode-studio.es
+                    </p>
                 </div>
 
 
 
 
+                <div className="Contacto-bloque2">
+                    <a 
+                        className={`Contacto-instagram ${showInfo ? "slide-in" : ""}`} 
+                        href="https://www.instagram.com/mode_estudio/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ transitionDelay: "1.8s" }}
+                    >
+                        Instagram
+                    </a>
+                    
+                    <div className={`Contenedor-imag ${showImage ? "fade-in" : ""}`}>
+                    
+                    <div className="Contacto-img">
+                        {imagenes.map((src, index) => (
+                            <div className="Background-imagenes" key={index} style={{
+                                backgroundImage: `url(${src})`, animationDelay: `${index * 15}s`
+                            }}></div>
+                        ))}
+                    </div>
+                   
+                    </div>
+                    
+                    <p className={`Contacto-direccion ${showInfo ? "slide-in" : ""}`}
+                       style={{ transitionDelay: "2.3s" }}>
+                        c/Duque de Calabria, 13  
+                    </p> 
+                    <p className={`Contacto-direccion ${showInfo ? "slide-in" : ""}`}
+                       style={{ transitionDelay: "2.3s" }}>
+                        46005,
+                    </p>
+                      <p className={`Contacto-direccion ${showInfo ? "slide-in" : ""}`}
+                       style={{ transitionDelay: "2.3s" }}>
+                        Valencia
+                    </p>
+
+
+
+                </div>
+       
 
 
 
