@@ -133,7 +133,7 @@ const Proyecto = () => {
                     {
 
                         load ? (
-                            <p>Cargando imágenes</p>
+                            <p className="cargando" >Cargando imágenes ...</p>
 
 
                         ) : err ? (

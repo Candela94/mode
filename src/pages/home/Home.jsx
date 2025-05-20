@@ -36,7 +36,7 @@ const Home = () => {
                     {
                         loading ? (
 
-                            <p className="cargando"> Cargando proyectos</p>
+                            <p className="cargando"> Cargando proyectos ...</p>
 
                         ) : error ? (
 
