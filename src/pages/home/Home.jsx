@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 const Home = () => {
 
 
-    const {proyectos ,loading, error} = useFetchAll()
+    const { proyectos, loading, error } = useFetchAll()
 
 
 
@@ -30,13 +30,13 @@ const Home = () => {
 
 
                 <div className="Galeria">
-                  
+
 
 
                     {
                         loading ? (
 
-                            <p> Cargando proyectos</p>
+                            <p className="cargando"> Cargando proyectos</p>
 
                         ) : error ? (
 
@@ -50,20 +50,20 @@ const Home = () => {
                                 {
                                     proyectos.map((proyecto, id) => {
 
-                                        return(
+                                        return (
 
-                                           <NavLink key={proyecto._id}  to={`/proyectos/${proyecto._id}`}><li  data-index={id} className="Galeria-li ">
-                                               <div  className="Galeria-contenedor " >
-                                                <img  src={proyecto.portada}  alt={proyecto.nombre} className="Galeria-img " />
-                                                <div className="Galeria-nombre">{proyecto.nombre}</div>
+                                            <NavLink key={proyecto._id} to={`/proyectos/${proyecto._id}`}><li data-index={id} className="Galeria-li ">
+                                                <div className="Galeria-contenedor " >
+                                                    <div className="Galeria-nombre">{proyecto.nombre}</div>
+                                                    <img src={proyecto.portada} alt={proyecto.nombre} className="Galeria-img " />
                                                 </div>
-                                            </li></NavLink> 
+                                            </li></NavLink>
                                         )
                                     })
                                 }
 
                             </ul>
-                        ): (
+                        ) : (
                             <p>No hay proyectos que mostrar</p>
                         )
                     }

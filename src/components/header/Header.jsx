@@ -29,7 +29,7 @@ export const Header = () => {
 
     const itemsMenu = [
         { label: 'Proyectos', path: '/home' },
-        { label: 'En proceso', path: '/' },
+        // { label: 'En proceso', path: '/' },
         { label: 'Contacto', path: '/contacto' }
     ]
 
