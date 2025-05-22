@@ -7,6 +7,7 @@ import './lightbox.css'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import { useSwipeable } from "react-swipeable";
+import { IoIosClose } from "react-icons/io";
 
 
 export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, prevImage }) => {
@@ -122,7 +123,8 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
 
             {
                 isMobile && (
-                    <button className="lightbox-close" onClick={handleClose}>x</button>
+                    <IoIosClose  className="lightbox-close" onClick={handleClose}/>
+
                 )
             }
 
