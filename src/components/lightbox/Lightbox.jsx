@@ -121,12 +121,6 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
             <div className={`lightbox-content ${closing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}
                 {...swipeHandlers}>
 
-            {
-                isMobile && (
-                    <IoIosClose  className="lightbox-close" onClick={handleClose}/>
-
-                )
-            }
 
                 {/* <button className="lightbox-close" onClick={handleClose}><TfiClose /></button> */}
 
@@ -135,8 +129,14 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
                 {/* <div className="lightbox-controls">
                     <button className="lightbox-prev" onClick={() => changeImage(prevImage)}><GrPrevious /></button>
                     <button className="lightbox-next" onClick={() => changeImage(nextImage)}><GrNext /></button>
-                </div> */}
+                    </div> */}
             </div>
+                    {
+                        isMobile && (
+                            <IoIosClose  className="lightbox-close" onClick={handleClose}/>
+        
+                        )
+                    }
         </div>
     );
 
