@@ -16,6 +16,8 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
     const [closing, setClosing] = useState(false);
     const [imgVisible, setImgVisible] = useState(true);
 
+    const isMobile = window.innerWidth <= 1024;
+
 
     // Cuando isOpen cambia a true, mostrar el lightbox
 
@@ -117,6 +119,12 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
 
             <div className={`lightbox-content ${closing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}
                 {...swipeHandlers}>
+
+            {
+                isMobile && (
+                    <button className="lightbox-close">x</button>
+                )
+            }
 
                 {/* <button className="lightbox-close" onClick={handleClose}><TfiClose /></button> */}
 
