@@ -106,12 +106,12 @@ const Home = () => {
 
 
                     {
-                        proyectos && proyectos.lenght > 0 && window.innerWidth >= 768(
+                        proyectos && proyectos.length > 0 && window.innerWidth >= 768(
 
                             <div className="scroll-indicator">
 
                                 <div className="scroll-track">
-                                    <div className="scroll-thumb" style={{ width: `${scrollProgress}` }}></div>
+                                    <div className="scroll-thumb" style={{ width: `${scrollProgress}%` }}></div>
                                 </div>
                             </div>
                         )

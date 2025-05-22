@@ -156,10 +156,19 @@
         overflow-x: auto;
         overflow-y: hidden;
         margin-left: 4rem;
+        position: relative;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .Galeria::-webkit-scrollbar {
+        display: none;
+    }
+
        
     
     
-     }
+     
 
      .Galeria-proyectos{
     
@@ -170,13 +179,48 @@
         align-items: center;
         overflow-x: scroll;
         width: 100%;
-      
+        padding-bottom: 3rem;
       
        
      
     
     
      }
+
+
+     .scroll-indicator {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        height: 3px;
+        z-index: 10;
+        pointer-events: none;
+    }
+    
+    .scroll-track {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    
+    .scroll-thumb {
+        height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8));
+        border-radius: 2px;
+        transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                  
+                    transform 0.4s ease;
+        transform-origin: left center;
+        min-width: 15px;
+    }
+    
+    .Galeria:hover .scroll-thumb {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+    }
     
     
      .Galeria-img {
@@ -264,7 +308,6 @@
           
            
          
-        
         
          }
 
@@ -370,12 +413,9 @@
 
 
 
-        /* scroll */
 
 
 
-
-  }
-
+  
   
 
