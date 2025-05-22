@@ -233,6 +233,16 @@
             overflow-x: scroll;
             overflow-y: hidden;
             margin-top: 5rem;
+            position: relative;
+
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        
+        /* Webkit browsers (Chrome, Safari, Edge) */
+        .Galeria::-webkit-scrollbar {
+            display: none;
+        }
 
 
           
