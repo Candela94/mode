@@ -31,10 +31,10 @@ useEffect(() => {
         }
     };
 
-    galeria.addEventListener("wheel", handleWheel, {passive:'false'})
+    galeria.addEventListener("wheel", handleWheel, {passive:false})
 
     return () => {
-        galeria.addEventListener("wheel", handleWheel)
+        galeria.removeEventListener("wheel", handleWheel)
     }
 },[])
 
@@ -52,7 +52,6 @@ useEffect(() => {
                 <div className="Galeria" ref={galeriaRef}>
 
 
-
                     {
                         loading ? (
 
@@ -65,6 +64,8 @@ useEffect(() => {
                         ) : proyectos && proyectos.length > 0 ? (
 
                             <ul className="Galeria-proyectos">
+
+                       
 
 
                                 {

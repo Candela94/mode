@@ -80,7 +80,7 @@
 
     width: 100%;
     height: auto;
- 
+    background-color: pink;
     display: flex;
     justify-content: space-between;
     gap: 6rem;
@@ -231,7 +231,7 @@
             width: 100%;
             margin-left: 5rem;
             overflow-x: scroll;
-            overflow-y: auto;
+            overflow-y: hidden;
             margin-top: 5rem;
           
           }
@@ -245,7 +245,8 @@
             gap: 2rem;
             align-items: center;
             overflow-x: scroll;
-            width: 100%;
+            width: max-content;
+            padding-bottom: 1rem;
           
           
            
@@ -262,7 +263,7 @@
             opacity: 0.9;
             height: 420px;
             position: relative;
-            
+            flex-shrink: 0;
             transition: opacity 0.3s ease;
           
            
@@ -281,6 +282,7 @@
             object-fit: cover;
             flex-shrink: 0;
             position: relative;
+            flex-shrink: 0;
         }
         
         .Galeria-li{
