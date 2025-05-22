@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import './lightbox.css'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
+import { useSwipeable } from "react-swipeable";
 
 
 export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, prevImage }) => {
@@ -98,6 +99,15 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
       };
 
 
+      const swipeHandlers = useSwipeable({
+        onSwipedLeft: () => changeImage(nextImage),
+        onSwipedRight: () => changeImage(prevImage),
+        preventScrollOnSwipe:true,
+        trackMouse: true,
+      });
+
+     
+
 
 
     if (!visible) return null;
@@ -105,7 +115,8 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
     return (
         <div className={`lightbox-overlay ${closing ? 'closing' : ''}`} onClick={handleClose}>
 
-            <div className={`lightbox-content ${closing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
+            <div className={`lightbox-content ${closing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}
+                {...swipeHandlers}>
 
                 {/* <button className="lightbox-close" onClick={handleClose}><TfiClose /></button> */}
 
