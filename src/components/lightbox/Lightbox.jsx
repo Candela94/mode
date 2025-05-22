@@ -122,7 +122,7 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
 
             {
                 isMobile && (
-                    <button className="lightbox-close">x</button>
+                    <button className="lightbox-close" onClick={handleClose}>x</button>
                 )
             }
 
