@@ -3,7 +3,7 @@ import { Header } from "../../components/header/Header";
 import './home.css'
 
 import { useScroll } from "../../../hooks/UseScroll";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFetchAll } from "../../../hooks/useFetch";
 import { NavLink } from "react-router-dom";
 
@@ -12,11 +12,31 @@ import { NavLink } from "react-router-dom";
 
 const Home = () => {
 
+    const galeriaRef = useRef(null)
 
     const { proyectos, loading, error } = useFetchAll()
 
 
+useEffect(() => {
+    const galeria = galeriaRef.current;
 
+    if(!galeria) return;
+
+    const handleWheel = (e) => {
+
+        if(window.innerWidth >= 1025) {
+
+            e.preventDefault(); //evitamos scroll vertical 
+            galeria.scrollLeft += e.deltaY; //mueve horizontalmente
+        }
+    };
+
+    galeria.addEventListener("wheel", handleWheel, {passive:'false'})
+
+    return () => {
+        galeria.addEventListener("wheel", handleWheel)
+    }
+},[])
 
 
 
@@ -29,7 +49,7 @@ const Home = () => {
             <main className="Main">
 
 
-                <div className="Galeria">
+                <div className="Galeria" ref={galeriaRef}>
 
 
 
