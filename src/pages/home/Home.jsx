@@ -106,7 +106,7 @@ const Home = () => {
 
 
                     {
-                        proyectos && proyectos.length > 0 && window.innerWidth >= 768(
+                        proyectos && proyectos.length > 0 && window.innerWidth >= 768 && (
 
                             <div className="scroll-indicator">
 
