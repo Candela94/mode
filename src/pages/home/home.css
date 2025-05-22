@@ -303,7 +303,8 @@
             align-items: center;
             overflow-x: scroll;
             width: max-content;
-            padding-bottom: 3rem;
+            padding-bottom: 0.5rem;
+           
           
           
            
@@ -318,7 +319,7 @@
             bottom: 1rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 60%;
+            width: 90%;
             height: 4px;
             z-index: 10;
             pointer-events: none;
@@ -327,7 +328,7 @@
         .scroll-track {
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(184, 184, 184, 0.2);
             border-radius: 2px;
             overflow: hidden;
         }
