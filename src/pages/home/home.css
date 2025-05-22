@@ -12,8 +12,10 @@
 
 .Galeria {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
-    height: 90vh;
+    height: auto;
 
     width: 100%;
 
