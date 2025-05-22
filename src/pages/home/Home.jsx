@@ -14,29 +14,44 @@ const Home = () => {
 
     const galeriaRef = useRef(null)
 
+    const [scrollProgress, setScrollProgress] = useState(0)
+
     const { proyectos, loading, error } = useFetchAll()
 
 
-useEffect(() => {
-    const galeria = galeriaRef.current;
+    useEffect(() => {
+        const galeria = galeriaRef.current;
 
-    if(!galeria) return;
+        if (!galeria) return;
 
-    const handleWheel = (e) => {
+        const handleWheel = (e) => {
 
-        if(window.innerWidth >= 1025) {
+            if (window.innerWidth >= 768) {
 
-            e.preventDefault(); //evitamos scroll vertical 
-            galeria.scrollLeft += e.deltaY; //mueve horizontalmente
+                e.preventDefault(); //evitamos scroll vertical 
+                galeria.scrollLeft += e.deltaY; //mueve horizontalmente
+            }
+        };
+
+        const handleScroll = () => {
+
+            if (window.innerWidth >= 768) {
+
+                const scrollLeft = galeria.scrollLeft;
+                const scrollWidth = galeria.scrollWidth - galeria.clientWidth;
+                const progress = (scrollLeft / scrollWidth) * 100;
+                setScrollProgress(progress)
+            }
         }
-    };
 
-    galeria.addEventListener("wheel", handleWheel, {passive:false})
+        galeria.addEventListener("wheel", handleWheel, { passive: false })
+        galeria.addEventListener("scroll", handleScroll)
 
-    return () => {
-        galeria.removeEventListener("wheel", handleWheel)
-    }
-},[])
+        return () => {
+            galeria.removeEventListener("wheel", handleWheel)
+            galeria.removeEventListener("scroll", handleScroll)
+        }
+    }, [proyectos])
 
 
 
@@ -65,7 +80,7 @@ useEffect(() => {
 
                             <ul className="Galeria-proyectos">
 
-                       
+
 
 
                                 {
@@ -86,6 +101,19 @@ useEffect(() => {
                             </ul>
                         ) : (
                             <p>No hay proyectos que mostrar</p>
+                        )
+                    }
+
+
+                    {
+                        proyectos && proyectos.lenght > 0 && window.innerWidth >= 768(
+
+                            <div className="scroll-indicator">
+
+                                <div className="scroll-track">
+                                    <div className="scroll-thumb" style={{ width: `${scrollProgress}` }}></div>
+                                </div>
+                            </div>
                         )
                     }
 

@@ -80,7 +80,7 @@
 
     width: 100%;
     height: auto;
-    background-color: pink;
+  
     display: flex;
     justify-content: space-between;
     gap: 6rem;
@@ -233,6 +233,9 @@
             overflow-x: scroll;
             overflow-y: hidden;
             margin-top: 5rem;
+
+
+          
           
           }
           
@@ -246,7 +249,7 @@
             align-items: center;
             overflow-x: scroll;
             width: max-content;
-            padding-bottom: 1rem;
+            padding-bottom: 3rem;
           
           
            
@@ -254,6 +257,46 @@
         
         
          }
+
+
+
+         .scroll-indicator {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 4px;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .scroll-track {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .scroll-thumb {
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8));
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            min-width: 20px;
+        }
+        
+        /* Efecto hover en el contenedor para mostrar más el indicador */
+        .Galeria:hover .scroll-thumb {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: scaleY(1.2);
+        }
+        
+        .Galeria:hover .scroll-track {
+            background: rgba(255, 255, 255, 0.3);
+        }
         
         
     
@@ -312,6 +355,14 @@
             
             
         } 
+
+
+
+
+
+        /* scroll */
+
+
 
 
   }
