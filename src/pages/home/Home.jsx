@@ -19,39 +19,39 @@ const Home = () => {
     const { proyectos, loading, error } = useFetchAll()
 
 
-    // useEffect(() => {
-    //     const galeria = galeriaRef.current;
+    useEffect(() => {
+        const galeria = galeriaRef.current;
 
-    //     if (!galeria) return;
+        if (!galeria) return;
 
-    //     const handleWheel = (e) => {
+        const handleWheel = (e) => {
 
-    //         if (window.innerWidth >= 768) {
+            if (window.innerWidth >= 768) {
 
-    //             e.preventDefault(); //evitamos scroll vertical 
-    //             galeria.scrollLeft += e.deltaY; //mueve horizontalmente
-    //         }
-    //     };
+                e.preventDefault(); //evitamos scroll vertical 
+                galeria.scrollLeft += e.deltaY; //mueve horizontalmente
+            }
+        };
 
-    //     const handleScroll = () => {
+        const handleScroll = () => {
 
-    //         if (window.innerWidth >= 768) {
+            if (window.innerWidth >= 768) {
 
-    //             const scrollLeft = galeria.scrollLeft;
-    //             const scrollWidth = galeria.scrollWidth - galeria.clientWidth;
-    //             const progress = (scrollLeft / scrollWidth) * 100;
-    //             setScrollProgress(progress)
-    //         }
-    //     }
+                const scrollLeft = galeria.scrollLeft;
+                const scrollWidth = galeria.scrollWidth - galeria.clientWidth;
+                const progress = (scrollLeft / scrollWidth) * 100;
+                setScrollProgress(progress)
+            }
+        }
 
-    //     galeria.addEventListener("wheel", handleWheel, { passive: false })
-    //     galeria.addEventListener("scroll", handleScroll)
+        galeria.addEventListener("wheel", handleWheel, { passive: false })
+        galeria.addEventListener("scroll", handleScroll)
 
-    //     return () => {
-    //         galeria.removeEventListener("wheel", handleWheel)
-    //         galeria.removeEventListener("scroll", handleScroll)
-    //     }
-    // }, [proyectos])
+        return () => {
+            galeria.removeEventListener("wheel", handleWheel)
+            galeria.removeEventListener("scroll", handleScroll)
+        }
+    }, [proyectos])
 
 
 
