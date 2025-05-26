@@ -23,6 +23,7 @@ const imagenes = [
 const Inicio = () => {
 
     const [indice, setIndice] = useState(0)
+    const [anteriorIndice, setAnteriorIndice] = useState(null);
     const [primeraVez, setPrimeraVez] = useState(true)
 
     useEffect(() => {
@@ -31,15 +32,16 @@ const Inicio = () => {
         const intervalo = setInterval(() => {
 
             setPrimeraVez(false);
+            setAnteriorIndice(indice);
             setIndice((prev) => (prev + 1) % imagenes.length);
 
-        }, 5000);
+        }, 10000);
 
         return () => clearInterval(intervalo)
 
 
 
-    }, [])
+    }, [indice])
 
 
 
@@ -50,15 +52,20 @@ const Inicio = () => {
 
             <main className="Main-inicio">
 
-
-                {imagenes.map((src, i) => (
+                {anteriorIndice !== null && (
                     <img
-                        key={i}
-                        src={src}
-                        alt={`imagen-${i}`}
-                        className={`Main-img ${i === indice ? 'visible' : ''} ${primeraVez && i === 0 ? 'slideDown' : ''}`}
+                        src={imagenes[anteriorIndice]}
+                        alt={`anterior-${anteriorIndice}`}
+                        className="Main-img fade-out"
                     />
-                ))}
+                )}
+
+                <img
+                    src={imagenes[indice]}
+                    alt={`imagen-${indice}`}
+                    className={`Main-img ${primeraVez ? 'slideDown' : 'fade-in'}`}
+                />
+
                 <div className="Main-texto">
 
                     <img src="/img/mode-logo.png" alt="logo" className="Logo" />
