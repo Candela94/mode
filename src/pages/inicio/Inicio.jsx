@@ -61,6 +61,10 @@ const Inicio = () => {
                                 ? (primeraVez && i === 0 ? 'slideDown' : 'active') 
                                 : 'inactive'
                         }`}
+                        style={{
+                            // Después de la primera transición, todas usan opacity transition
+                            transition: (primeraVez && i === 0) ? 'none' : 'opacity 2s ease-in-out'
+                        }}
                     />
                 ))}
                 <div className="Main-texto">
