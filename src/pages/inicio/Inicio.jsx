@@ -23,40 +23,24 @@ const imagenes = [
 const Inicio = () => {
 
     const [indice, setIndice] = useState(0)
-    const [anteriorIndice, setAnteriorIndice] = useState(null);
     const [primeraVez, setPrimeraVez] = useState(true)
-    const [transicionando, setTransicionando] = useState(false);
+   
 
     useEffect(() => {
 
 
         const intervalo = setInterval(() => {
-
             if (primeraVez) {
                 setPrimeraVez(false);
-            } else {
-                setTransicionando(true);
-                setAnteriorIndice(indice);
-                
-                // Pequeño delay para asegurar que la imagen anterior se muestre
-                setTimeout(() => {
-                    setIndice((prev) => (prev + 1) % imagenes.length);
-                }, 50);
-                
-                // Limpiar la imagen anterior después de la transición
-                setTimeout(() => {
-                    setAnteriorIndice(null);
-                    setTransicionando(false);
-                }, 1500); // 1.5s para que coincida con la duración de la transición
             }
-
+            setIndice((prev) => (prev + 1) % imagenes.length);
         }, 10000);
 
-        return () => clearInterval(intervalo)
+        return () => clearInterval(intervalo);
 
 
 
-    }, [indice, primeraVez])
+    }, [])
 
 
 
@@ -67,20 +51,18 @@ const Inicio = () => {
 
             <main className="Main-inicio">
 
-                {anteriorIndice !== null && transicionando && (
+            {imagenes.map((imagen, i) => (
                     <img
-                        src={imagenes[anteriorIndice]}
-                        alt={`anterior-${anteriorIndice}`}
-                        className="Main-img imagen-anterior"
+                        key={i}
+                        src={imagen}
+                        alt={`imagen-${i}`}
+                        className={`Main-img ${
+                            i === indice 
+                                ? (primeraVez && i === 0 ? 'slideDown' : 'active') 
+                                : 'inactive'
+                        }`}
                     />
-                )}
-
-                <img
-                    src={imagenes[indice]}
-                    alt={`imagen-${indice}`}
-                    className={`Main-img ${primeraVez ? 'slideDown' : 'imagen-actual'}`}
-                />
-
+                ))}
                 <div className="Main-texto">
 
                     <img src="/img/mode-logo.png" alt="logo" className="Logo" />
