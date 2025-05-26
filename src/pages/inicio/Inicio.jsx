@@ -23,16 +23,18 @@ const Inicio = () => {
 
             <main className="Main-inicio">
 
+                <div className="Main-img">
+
                 {
                     imagenes.map((src,index) => (
-                        <div className="Main-img" key={index} style={{
+                        <div className="Imagen" key={index} style={{
                             backgroundImage:`url(${src})`,
                             animationDelay:`${index*15}s`
                         }}></div>
                     ))
                 }
                  
-           
+                 </div>
 
 
                 <div className="Main-texto">
