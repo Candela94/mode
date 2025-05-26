@@ -33,7 +33,7 @@ const Inicio = () => {
             setPrimeraVez(false);
             setIndice((prev) => (prev + 1) % imagenes.length);
 
-        }, 500);
+        }, 5000);
 
         return () => clearInterval(intervalo)
 
@@ -54,7 +54,10 @@ const Inicio = () => {
                 <img
 
 
-                    src={imagenes[indice]} alt={`imagen-${indice}`} className={`Main-img ${primeraVez ? 'slideDown' : 'fade'}`} />
+                    key={i}
+                    src={src}
+                    alt={`imagen-${i}`}
+                    className={`Main-img ${i === indice ? 'visible' : ''} ${primeraVez && i === 0 ? 'slideDown' : ''}`} />
 
 
                 <div className="Main-texto">
