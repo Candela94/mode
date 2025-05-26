@@ -6,7 +6,12 @@ import './inicio.css'
 
 import { BsChevronRight } from "react-icons/bs";
 
-
+const imagenes = [
+    'img/H1.jpg',
+    'img/H2.jpg',
+    'img/H3.jpg',
+    'img/H4.jpg',
+]
 
 
 const Inicio = () => {
@@ -18,8 +23,15 @@ const Inicio = () => {
 
             <main className="Main-inicio">
 
-                
-                    <img src="/img/H1.jpg" alt="portada" className="Main-img" />
+                {
+                    imagenes.map((src,index) => (
+                        <div className="Main-img" key={index} style={{
+                            backgroundImage:`url(${src})`,
+                            animationDelay:`${index*15}s`
+                        }}></div>
+                    ))
+                }
+                 
            
 
 
