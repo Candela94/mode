@@ -150,6 +150,7 @@
         position: relative;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        width: calc(100vw - 4rem);
     }
     
     .Galeria::-webkit-scrollbar {
@@ -168,8 +169,8 @@
         flex-direction: row;
         gap: 1.5rem;
         align-items: center;
-        overflow-x: scroll;
-        overflow-y: hidden;
+       overflow: visible;
+        width: max-content;
         width: 100%;
         padding-bottom: 3rem;
       
@@ -233,6 +234,7 @@
         height: 400px;
         display: flex;
         flex-direction: column;
+        flex-shrink: 0;
         
        
       
@@ -270,6 +272,7 @@
             overflow-y: hidden;
             margin-top: 5rem;
             position: relative;
+            margin-left: 6rem;;
 
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* Internet Explorer 10+ */

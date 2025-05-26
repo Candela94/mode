@@ -124,7 +124,7 @@ export const Lightbox = ({ images, currentId, isOpen, closeLightbox, nextImage, 
 
                 {/* <button className="lightbox-close" onClick={handleClose}><TfiClose /></button> */}
 
-                <img src={images[currentId]} alt={`Image ${currentId}`} className={`lightbox-img ${imgVisible ? 'visible' : ''}`} />
+                <img loading="lazy" src={images[currentId]} alt={`Image ${currentId}`} className={`lightbox-img ${imgVisible ? 'visible' : ''}`} />
 
                 {/* <div className="lightbox-controls">
                     <button className="lightbox-prev" onClick={() => changeImage(prevImage)}><GrPrevious /></button>
