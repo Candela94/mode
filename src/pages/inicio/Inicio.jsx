@@ -51,15 +51,14 @@ const Inicio = () => {
             <main className="Main-inicio">
 
 
-                <img
-
-
-                    key={i}
-                    src={src}
-                    alt={`imagen-${i}`}
-                    className={`Main-img ${i === indice ? 'visible' : ''} ${primeraVez && i === 0 ? 'slideDown' : ''}`} />
-
-
+                {imagenes.map((src, i) => (
+                    <img
+                        key={i}
+                        src={src}
+                        alt={`imagen-${i}`}
+                        className={`Main-img ${i === indice ? 'visible' : ''} ${primeraVez && i === 0 ? 'slideDown' : ''}`}
+                    />
+                ))}
                 <div className="Main-texto">
 
                     <img src="/img/mode-logo.png" alt="logo" className="Logo" />
