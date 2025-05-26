@@ -151,7 +151,7 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
         width: 100vw;
-        padding-right: 6rem;
+       
     }
     
     .Galeria::-webkit-scrollbar {
@@ -274,7 +274,7 @@
             overflow-y: hidden;
             margin-top: 5rem;
             position: relative;
-            padding-right: 8rem;;
+            padding-right: 1rem;;
 
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* Internet Explorer 10+ */
