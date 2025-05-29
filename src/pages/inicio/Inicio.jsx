@@ -13,7 +13,9 @@ const imagenes = [
     '/img/H1.jpg',
     '/img/H2.jpg',
     '/img/H3.jpg',
-    '/img/H4.jpg'
+    '/img/H4.jpg',
+    '/img/H5.jpg',
+    '/img/H6.jpg'
 
 
 ]
