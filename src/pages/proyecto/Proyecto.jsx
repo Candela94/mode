@@ -151,7 +151,7 @@ const Proyecto = () => {
                                      
                                         return (
 
-                                            <li ref={(el) => (imgRefs.current[id] = el)} onClick={() => openLightbox(id)} className={`Galeria-mansory-item ${claseExtra}`} key={imgUrl._id || id}><img src={imgUrl} alt={`Imagen ${id}`} className="Galeria-imgProyecto" /></li>
+                                            <li ref={(el) => (imgRefs.current[id] = el)} onClick={() => openLightbox(id)} className='Galeria-mansory-item' key={imgUrl._id || id}><img src={imgUrl} alt={`Imagen ${id}`} className="Galeria-imgProyecto" /></li>
                                         )
                                     })
                                 }
