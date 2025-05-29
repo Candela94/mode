@@ -9,7 +9,7 @@ import { Lightbox } from "../../components/lightbox/Lightbox";
 const Proyecto = () => {
 
     const { proyect, imagenes, load, err } = useFetchOne()
-    const [orientaciones, setOrientaciones] = useState([])
+    // const [orientaciones, setOrientaciones] = useState([])
 
     const [lightboxOpen, setLightboxOpen] = useState(false)
     const [currentId, setCurrentId] = useState(0)
@@ -52,33 +52,33 @@ const Proyecto = () => {
 
 
 
-    useEffect(() => {
-        const detectarOrientaciones = async () => {
+    // useEffect(() => {
+    //     const detectarOrientaciones = async () => {
 
-            const resultados = await Promise.all(
-                imagenes.map((src) => {
-                    return new Promise((resolve) => {
-                        const img = new Image();
-                        img.src = src;
-                        img.onload = () => {
+    //         const resultados = await Promise.all(
+    //             imagenes.map((src) => {
+    //                 return new Promise((resolve) => {
+    //                     const img = new Image();
+    //                     img.src = src;
+    //                     img.onload = () => {
 
-                            resolve(img.naturalWidth > img.naturalHeight ? 'horizontal' : 'vertical')
-                        }
+    //                         resolve(img.naturalWidth > img.naturalHeight ? 'horizontal' : 'vertical')
+    //                     }
 
-                        img.onerror = () => resolve('');
-                    })
-                })
+    //                     img.onerror = () => resolve('');
+    //                 })
+    //             })
 
-            )
+    //         )
 
-            setOrientaciones(resultados)
-        }
+    //         setOrientaciones(resultados)
+    //     }
 
-        if (imagenes && imagenes.length > 0) {
+    //     if (imagenes && imagenes.length > 0) {
 
-            detectarOrientaciones()
-        }
-    }, [imagenes])
+    //         detectarOrientaciones()
+    //     }
+    // }, [imagenes])
 
 
 
@@ -148,7 +148,7 @@ const Proyecto = () => {
                                 {
                                     imagenes.map((imgUrl, id) => {
 
-                                        const claseExtra = orientaciones[id] === 'horizontal' ? 'horizontal' : '';
+                                     
                                         return (
 
                                             <li ref={(el) => (imgRefs.current[id] = el)} onClick={() => openLightbox(id)} className={`Galeria-mansory-item ${claseExtra}`} key={imgUrl._id || id}><img src={imgUrl} alt={`Imagen ${id}`} className="Galeria-imgProyecto" /></li>

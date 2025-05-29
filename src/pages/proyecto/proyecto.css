@@ -64,10 +64,10 @@
     cursor: pointer;
 }
 
-.Galeria-mansory-item.horizontal {
+/* .Galeria-mansory-item.horizontal {
     width: 100%;
-    /* column-span: all; Ocupa toda la columna si es horizontal */
-  }
+    column-span: all; 
+  }  */
 
 
 
