@@ -104,7 +104,7 @@ const Inicio = () => {
                       alt={`imagen-${i}`}
                       className={`Main-img ${
                           i === indice
-                              ? (primeraVez && i === 0 ? 'slideDown' : 'active')
+                              ? (primeraAnimacion && i === 0 ? 'slideDown' : 'active')
                               : 'inactive'
                       } ${
                           // Solo aplicar transición después de que termine slideDown
