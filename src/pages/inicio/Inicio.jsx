@@ -25,37 +25,68 @@ const imagenes = [
 const Inicio = () => {
 
     const [indice, setIndice] = useState(0)
-    const [primeraVez, setPrimeraVez] = useState(true)
-    const [animacionCompleta, setAnimacionCompleta] = useState(false)
-   
+    const [primeraAnimacion, setPrimeraAnimacion] = useState(true)
+
+
+    // useEffect(() => {
+    //     // Marcar cuando la animación slideDown ha terminado
+    //     const timer = setTimeout(() => {
+    //         setAnimacionCompleta(true);
+    //     }, 3000); // Duración de slideDown
+
+    //     return () => clearTimeout(timer);
+    // }, []);
+
+
+
+    // useEffect(() => {
+
+
+    //     const intervalo = setInterval(() => {
+    //         if (primeraVez) {
+    //             setPrimeraVez(false);
+    //         }
+    //         setIndice((prev) => (prev + 1) % imagenes.length);
+    //     }, 10000);
+
+    //     return () => clearInterval(intervalo);
+
+
+
+    // }, [primeraVez])
+
+
 
 
     useEffect(() => {
-        // Marcar cuando la animación slideDown ha terminado
-        const timer = setTimeout(() => {
-            setAnimacionCompleta(true);
-        }, 3000); // Duración de slideDown
+        let intervalo;
+        
+        if (primeraAnimacion) {
+            // Esperar a que termine la primera animación (slideDown) antes de iniciar el ciclo
+            const timeout = setTimeout(() => {
+                setPrimeraAnimacion(false);
+                setIndice(1); // Cambiar a la segunda imagen
+                
+                // Iniciar el intervalo normal después del primer cambio
+                intervalo = setInterval(() => {
+                    setIndice((prev) => (prev + 1) % imagenes.length);
+                }, 10000);
+            }, 8000); // 3s slideDown + 5s pausa
+            
+            return () => {
+                clearTimeout(timeout);
+                if (intervalo) clearInterval(intervalo);
+            };
+        } else {
+            // Intervalo normal para el resto de imágenes
+            intervalo = setInterval(() => {
+                setIndice((prev) => (prev + 1) % imagenes.length);
+            }, 10000);
+            
+            return () => clearInterval(intervalo);
+        }
+    }, [primeraAnimacion]);
 
-        return () => clearTimeout(timer);
-    }, []);
-
-
-
-    useEffect(() => {
-
-
-        const intervalo = setInterval(() => {
-            if (primeraVez) {
-                setPrimeraVez(false);
-            }
-            setIndice((prev) => (prev + 1) % imagenes.length);
-        }, 10000);
-
-        return () => clearInterval(intervalo);
-
-
-
-    }, [primeraVez])
 
 
 
