@@ -26,7 +26,20 @@ const Inicio = () => {
 
     const [indice, setIndice] = useState(0)
     const [primeraVez, setPrimeraVez] = useState(true)
+    const [animacionCompleta, setAnimacionCompleta] = useState(false)
    
+
+
+    useEffect(() => {
+        // Marcar cuando la animación slideDown ha terminado
+        const timer = setTimeout(() => {
+            setAnimacionCompleta(true);
+        }, 3000); // Duración de slideDown
+
+        return () => clearTimeout(timer);
+    }, []);
+
+
 
     useEffect(() => {
 
@@ -42,7 +55,7 @@ const Inicio = () => {
 
 
 
-    }, [])
+    }, [primeraVez])
 
 
 
@@ -54,20 +67,19 @@ const Inicio = () => {
             <main className="Main-inicio">
 
             {imagenes.map((imagen, i) => (
-                    <img
-                        key={i}
-                        src={imagen}
-                        alt={`imagen-${i}`}
-                        className={`Main-img ${
-                            i === indice 
-                                ? (primeraVez && i === 0 ? 'slideDown' : 'active') 
-                                : 'inactive'
-                        }`}
-                        style={{
-                            // Después de la primera transición, todas usan opacity transition
-                            transition: (primeraVez && i === 0) ? 'none' : 'opacity 2s ease-in-out'
-                        }}
-                    />
+                      <img
+                      key={i}
+                      src={imagen}
+                      alt={`imagen-${i}`}
+                      className={`Main-img ${
+                          i === indice
+                              ? (primeraVez && i === 0 ? 'slideDown' : 'active')
+                              : 'inactive'
+                      } ${
+                          // Solo aplicar transición después de que termine slideDown
+                          (i === 0 && !animacionCompleta) ? 'no-transition' : ''
+                      }`}
+                  />
                 ))}
                 <div className="Main-texto">
 
