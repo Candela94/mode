@@ -98,19 +98,16 @@ const Inicio = () => {
             <main className="Main-inicio">
 
             {imagenes.map((imagen, i) => (
-                      <img
-                      key={i}
-                      src={imagen}
-                      alt={`imagen-${i}`}
-                      className={`Main-img ${
-                          i === indice
-                              ? (primeraAnimacion && i === 0 ? 'slideDown' : 'active')
-                              : 'inactive'
-                      } ${
-                          // Solo aplicar transición después de que termine slideDown
-                          (i === 0 && !animacionCompleta) ? 'no-transition' : ''
-                      }`}
-                  />
+                       <img
+                       key={i}
+                       src={imagen}
+                       alt={`imagen-${i}`}
+                       className={`Main-img ${
+                           i === indice
+                               ? (primeraAnimacion && i === 0 ? 'slideDown' : 'active')
+                               : 'inactive'
+                       }`}
+                   />
                 ))}
                 <div className="Main-texto">
 
